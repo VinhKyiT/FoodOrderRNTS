@@ -1,26 +1,24 @@
 import { View, Text, StyleSheet, Dimensions, Image } from 'react-native';
-import React, { useEffect, useState } from 'react'
-import RNLocation, { RNLocationNativeInterface } from 'react-native-location';
+import React, { useEffect, useState } from 'react';
+import GetLocation from 'react-native-get-location';
 
 const LandingScreen = () => {
 
-  const [location, setLocation] = useState<RNLocationNativeInterface>(null);
+  const [location, setLocation] = useState<GetLocation>('');
 
   useEffect(() => {
-    // RNLocation.requestPermission({
-    //   ios: "whenInUse",
-    //   android: {
-    //     detail: "coarse"
-    //   }
-    // }).then(granted => {
-    //     if (granted) {
-    //       this.locationSubscription = RNLocation.subscribeToLocationUpdates(locations => {console.log(locations)})
-    //     }
-    //   })
-      RNLocation.getLatestLocation({ timeout: 60000 })
-      .then(latestLocation => {
-        console.log(latestLocation);
-      })
+    GetLocation.getCurrentPosition({
+      enableHighAccuracy: true,
+      timeout: 15000,
+  })
+  .then(location => {
+      console.log(location);
+      setLocation(location);
+  })
+  .catch(error => {
+      const { code, message } = error;
+      console.warn(code, message);
+  })
   } , [])
 
   return (
