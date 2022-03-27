@@ -1,11 +1,12 @@
 import React from 'react';
-import LandingScreen from './src/screens/LandingScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import StackNavigator from './src/StackNavigator';
 
 const App = () => {
   return (
-    <>
-      <LandingScreen />
-    </>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 };
 
