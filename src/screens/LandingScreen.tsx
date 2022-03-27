@@ -14,6 +14,7 @@ const LandingScreen = () => {
     const url = `https://revgeocode.search.hereapi.com/v1/revgeocode?at=${latitude}%2C${longitude}&lang=en-USS&apikey=n062bSuYVxYLK_qIze9RN29PnlEVImx8aeJgZikqd5Y`;
     const response = await fetch(url);
     const data = await response.json();
+    console.log(data.items[0]);
     setAddress(data.items[0].title);
   };
 
