@@ -41,7 +41,7 @@ const LandingScreen = () => {
       if (address) {
         navigation.navigate('Home', { address });
       }
-    }, 2000);
+    }, 1000);
   }, [address, navigation]);
 
   return (

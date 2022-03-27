@@ -24,7 +24,7 @@ const HomeScreen = () => {
       </View>
       <View style={styles.locationArea}>
         <Ionicons name="location-outline" size={24} color="black" />
-        <Text>{params?.address}</Text>
+        <Text style={{color: '#000'}}>{params?.address}</Text>
       </View>
     </SafeAreaView>
   );
@@ -49,16 +49,18 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     padding: 10,
     borderRadius: 5,
-    width: '85%',
+    width: '82%',
   },
   searchIcon: {
     position: 'absolute',
     right: 10,
     padding: 10,
+    margin: 10,
+    backgroundColor: 'transparent',
   },
   locationArea: {
     flexDirection: 'row',
     marginTop: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 15,
   },
 });
